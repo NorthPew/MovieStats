@@ -34,16 +34,16 @@ export const Navbar = () => {
                 </motion.button>
                 <input type="text"></input>
                 <motion.ul className={navIsOpen ? "open" : "closed"} variants={listVariants}>
-                    <motion.li variants={listItemVariants}>
+                    <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movies-by-language">Movies by language</a>
                     </motion.li>
-                    <motion.li variants={listItemVariants}>
+                    <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movie-releases-by-month">Movie releases by month</a>
                     </motion.li>
-                    <motion.li variants={listItemVariants}>
+                    <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movie-durations">Movie durations</a>
                     </motion.li>
-                    <motion.li variants={listItemVariants}>
+                    <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movies-by-genre">Movies by genre</a>
                     </motion.li>
                 </motion.ul>

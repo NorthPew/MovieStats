@@ -67,6 +67,7 @@ ul.open {
   align-items: center;
   justify-content: center;
   grid-template-rows: repeat(auto-fit, 3.5em);
+  background-color: #f1f1f1;
 }
 
 ul, li {
