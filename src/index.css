@@ -43,10 +43,19 @@ button:hover, button:active {
 
 ul.closed {
   opacity: 0;
+  visibility: hidden;
+}
+
+ul {
+  width: 0px;
+  height: 0px;
+  transition: width .5s ease-in-out, height .5s ease-in-out;
+  padding: 0px;
 }
 
 ul.open {
   opacity: 1;
+  visibility: visible;
   width: 20vw;
   height: 100vh;
   box-shadow: var(--shadow-elevation-medium);
@@ -57,7 +66,7 @@ ul.open {
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-template-rows: repeat(4fr, auto);
+  grid-template-rows: repeat(auto-fit, 3.5em);
 }
 
 ul, li {
