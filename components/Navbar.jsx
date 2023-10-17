@@ -34,16 +34,16 @@ export const Navbar = () => {
                 </motion.button>
                 <motion.ul className={navIsOpen ? "open" : "closed"} variants={listVariants}>
                 <motion.li variants={listItemVariants}>
-                    Movies by language
+                    <a href="#movies-by-language">Movies by language</a>
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                    Movie releases by month
+                    <a href="#movie-releases-by-month">Movie releases by month</a>
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                    Movie duration
+                    <a href="#movie-durations">Movie durations</a>
                 </motion.li>
                 <motion.li variants={listItemVariants}>
-                    Movies by genre
+                    <a href="#movies-by-genre">Movies by genre</a>
                 </motion.li>
             </motion.ul>
             </motion.nav>
