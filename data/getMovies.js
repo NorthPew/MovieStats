@@ -67,3 +67,26 @@ export function getMoviesByMonthBarsConfig() {
         }]
     }
 }
+
+export function getMoviesByDurationLineConfig() {
+
+    let pickOutTheDurations = allTheMovies.map(movie => {
+        let splitTheTime = movie.Runtime.split(' ')
+        return `${splitTheTime[0]}${splitTheTime[1]}`
+    })
+
+    pickOutTheDurations.sort()
+
+    let moviesByDurationCounter = pickOutTheDurations.reduce((counts, time) => {
+        counts[time] = (counts[time] || 0) + 1;
+        return counts;
+    }, {})
+
+    return {
+        datasets: [{
+            label: "Movies by duration",
+            data: moviesByDurationCounter,
+            backgroundColor: colors
+        }]
+    }
+}

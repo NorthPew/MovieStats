@@ -6,12 +6,12 @@ import { Pie, Bar, Line } from "react-chartjs-2"
 
 import { Navbar } from '../components/Navbar'
 
-import { getMoviesByLanguagePieConfig, getMoviesByMonthBarsConfig } from '../data/getMovies';
+import { getMoviesByLanguagePieConfig, getMoviesByMonthBarsConfig, getMoviesByDurationLineConfig} from '../data/getMovies';
 
 
 const moviesByLanguagePieConfig = getMoviesByLanguagePieConfig()
-
 const moviesByMonthBarsConfig = getMoviesByMonthBarsConfig()
+const moviesByDurationLineConfig = getMoviesByDurationLineConfig()
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
       <Navbar />
       <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
       <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
+      <Line id="movie-durations" data={moviesByDurationLineConfig} />
     </main>
   )
 }
