@@ -14,7 +14,7 @@ export function getMoviesByLanguagePieConfig() {
 
     // Counter for all the languages from the objects in the array using reduce
     const languageCounts = allTheMovies.reduce((counts, movie) => {
-        counts[movie.Language] = (counts[movie.Language] || 0) + 1;
+        counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;
         return counts;
     }, {});
 
@@ -84,8 +84,41 @@ export function getMoviesByDurationLineConfig() {
 
     return {
         datasets: [{
-            label: "Movies by duration",
+            label: "Movies by Duration",
             data: moviesByDurationCounter,
+            backgroundColor: colors
+        }]
+    }
+}
+
+export function getMoviesByGenrePieConfig() {
+
+    // Counter for all the genre from the objects in the array using reduce
+    const genreCounts = allTheMovies.reduce((counts, movie) => {
+        // Only count the movie if it has a genre
+        if (movie.Genre && movie.Genre.trim() !== '') {
+            counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;
+        }
+        return counts;
+    }, {});
+
+    // This is for labels that is used to distinguish between languages
+    let labelsForGenres = Object.keys(genreCounts);
+
+    // This is used for displaying the chart
+    let dataGenres = Object.values(genreCounts);
+
+    const sortedIndex = dataGenres.map((count, index) => index).sort((a, b) => dataGenres[b] - dataGenres[a]);
+
+    // Sort the languages and data arrays using the sorted indices
+    labelsForGenres = sortedIndex.map(index => labelsForGenres[index]);
+    dataGenres = sortedIndex.map(index => dataGenres[index]);
+
+    return {
+        labels: labelsForGenres,
+        datasets: [{
+            label: "Movies by Genre",
+            data: dataGenres,
             backgroundColor: colors
         }]
     }
