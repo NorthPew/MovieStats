@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from "chart.js";
-ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
-import { Pie, Bar } from "react-chartjs-2"
+import { Chart as ChartJS, ArcElement, Tooltip, Title, Legend, CategoryScale, LinearScale, BarElement, LineElement, PointElement, } from "chart.js";
+ChartJS.register(ArcElement, Tooltip, Title, Legend, CategoryScale, LinearScale, BarElement, PointElement,
+  LineElement,);
+import { Pie, Bar, Line } from "react-chartjs-2"
 
 import { Navbar } from '../components/Navbar'
 
