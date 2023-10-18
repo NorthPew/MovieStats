@@ -2,7 +2,21 @@ import featuredMovies from "./feature-films.json"
 import documentaries from "./documentaries.json"
 import specials from "./specials.json"
 
-const colors = ["#279696", "#bae6ac", "#62a87c", "#c80000", "#6338e2", "#f54242", "#42f5ce", "#f5a442", "#42f542", "#a442f5", "#f542a4", "#42a4f5", "#a4f542", "#f5ce42", "#ce42f5", "#42cef5", "#f542ce", "#cef542", "#42f5a4"]
+const colors = [
+    "#279696", "#bae6ac", "#62a87c", "#c80000", "#6338e2", "#f54242", "#42f5ce", 
+    "#f5a442", "#42f542", "#a442f5", "#f542a4", "#42a4f5", "#a4f542", "#f5ce42",
+    "#ce42f5", "#42cef5", "#f542ce", "#cef542", "#42f5a4",
+    "#FF5733", "#900C3F", "#C70039", "#581845", "#FFC300", "#FF5733", "#C70039",
+    "#900C3F", "#581845", "#DAF7A6", "#FFC300", "#FF5733", "#C70039", 
+    "#900C3F", "#581845", "#DAF7A6", "#FFC300", "#FF5733",
+    "#C70039", "#900C3F", "#581845", "#DAF7A6", "#FFC300","#FF5733","#C70039",
+    "#900C3F","#581845","#DAF7A6","#FFC300","#FF5733","#C70039","#900C3F",
+    "581845","#DAF7A6","#FFC300","#FF5733","#C70039","#900C3F","#581845",
+    "DAF7A6","#FFC300","#FF5733","#C70039","#900C3F","#581845","DAF7A6",
+    "FFC300","FF5733","C70039","900C3F","581845","DAF7A6","FFC300","FF5733",
+    "C70039","900C3F","581845","DAF7A6","FFC300","FF5733","C70039","900C3F",
+    "581845","DAF7A6"
+];
 
 let allTheMovies = [
     ...featuredMovies,
@@ -14,7 +28,7 @@ export function getMoviesByLanguagePieConfig() {
 
     // Counter for all the languages from the objects in the array using reduce
     const languageCounts = allTheMovies.reduce((counts, movie) => {
-        counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;
+        counts[movie.Language] = (counts[movie.Language] || 0) + 1;
         return counts;
     }, {});
 
