@@ -18,7 +18,7 @@ function App() {
     <main>
       <Navbar />
       <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
-      <Bar data={moviesByMonthBarsConfig} />
+      <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
     </main>
   )
 }

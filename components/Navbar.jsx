@@ -47,8 +47,10 @@ export const Navbar = () => {
                         <a href="#movies-by-genre">Movies by genre</a>
                     </motion.li>
                 </motion.ul>
-
             </motion.nav>
+            <motion.div id="navbar-outside" onClick={() => setNavIsOpen(!navIsOpen)} className={navIsOpen ? "open" : "closed"}>
+
+            </motion.div>
         </>
     )
 

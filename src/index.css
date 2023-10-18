@@ -68,6 +68,7 @@ ul.open {
   justify-content: center;
   grid-template-rows: repeat(auto-fit, 3.5em);
   background-color: #f1f1f1;
+  z-index: 2;
 }
 
 ul, li {
@@ -110,4 +111,23 @@ li > a:hover {
   animation-duration: 4s;
   animation-iteration-count: infinite;
   box-shadow: var(--shadow-elevation-high);
+}
+
+#navbar-outside {
+  width: 0px;
+  height: 0px;
+  transition: height .15s ease-in-out;
+  padding: 0px;
+  position: fixed;
+}
+
+#navbar-outside.open {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgb(39, 39, 39, .7);
+  backdrop-filter: blur(2px);
+  z-index: 1;
 }
