@@ -1,21 +1,24 @@
 import { useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
-import { Pie } from "react-chartjs-2"
+import { Pie, Bar } from "react-chartjs-2"
 
 import { Navbar } from '../components/Navbar'
 
-import { getFeaturedMoviesByLanguagePieConfig } from '../data/getMovies';
+import { getMoviesByLanguagePieConfig, getMoviesByMonthBarsConfig } from '../data/getMovies';
 
 
-const featuredMoviesByLanguagePieConfig = getFeaturedMoviesByLanguagePieConfig()
+const moviesByLanguagePieConfig = getMoviesByLanguagePieConfig()
+
+const moviesByMonthBarsConfig = getMoviesByMonthBarsConfig()
 
 function App() {
 
   return (
     <main>
       <Navbar />
-      <Pie id="movies-by-language" data={featuredMoviesByLanguagePieConfig} />
+      <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
+      <Bar data={moviesByMonthBarsConfig} />
     </main>
   )
 }
