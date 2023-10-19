@@ -18,7 +18,7 @@ const colors = [
     "581845","DAF7A6"
 ];
 
-let allTheMovies = [
+export let allTheMovies = [
     ...featuredMovies,
     ...documentaries,
     ...specials
