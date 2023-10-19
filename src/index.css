@@ -23,6 +23,7 @@
 
 html, body {
   margin: 0px;
+  overflow-x: hidden;
 }
 
 * {
@@ -40,6 +41,15 @@ button:hover, button:active {
 }
 
 /* Nav */
+
+nav  {
+  background-color: #f1f1f1;
+  box-shadow: var(--shadow-elevation-medium);
+  height: 30px;
+  display: flex;
+  position: relative;
+  width: 100vw;
+}
 
 ul.closed {
   opacity: 0;
@@ -116,7 +126,7 @@ li > a:hover {
 #navbar-outside {
   width: 0px;
   height: 0px;
-  transition: height .15s ease-in-out;
+  transition: height .25s ease-in-out;
   padding: 0px;
   position: fixed;
 }
@@ -130,4 +140,33 @@ li > a:hover {
   background-color: rgb(39, 39, 39, .7);
   backdrop-filter: blur(2px);
   z-index: 1;
+}
+
+.search-result-container {
+  position: absolute;
+  left: 0px;
+  border-radius: 15px;
+  top: 30px;
+}
+
+.search-result-box {
+  height: 680px;
+  background-color: #272727;
+  width: 100vw;
+}
+
+.big-text {
+  margin: 300px auto;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  transition: 0.5s;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
+                     0 3px 0 #ccc, 0 4px 0 #ccc,
+                     0 5px 0 #ccc, 0 6px 0 #ccc,
+                     0 7px 0 #ccc, 0 8px 0 #ccc,
+                     0 9px 0 #ccc, 0 10px 0 #ccc,
+                     0 11px 0 #ccc, 0 12px 0 #ccc,
+                     0 20px 30px rgba(0, 0, 0, 0.5);
 }

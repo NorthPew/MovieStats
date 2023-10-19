@@ -47,18 +47,20 @@ export const Navbar = () => {
                 <motion.button onClick={() => setNavIsOpen(!navIsOpen)} whileTap={{scale: 1.25}}>
                     Menu
                 </motion.button>
-                <input type="search" value={searchTitle} onChange={e => setSearchTitle(e.target.value)} />
+                <input type="search" value={searchTitle} placeholder="Sök efter filmer" onChange={e => setSearchTitle(e.target.value)} />
+                <ul className="search-result-container" >
                 {searchResults.map((result, index) => (
-                <div key={index}>
-                    Titel: {result.Title}
+                <li  className="search-result-box"key={index}>
+                    Titel: <p className="big-text">{result.Title}</p>
                     {
-                        result.Genre === undefined ? 'null' : ` Genre: ${result.Genre}`
+                        result.Genre === undefined ? null : ` Genre: ${result.Genre}`
                     }
                     Premiär: {result.Premiere}
                     Längd: {result.Runtime}
                     Språk: {result.Language}
-                    </div>
+                    </li>
             ))}
+                </ul>
                 <motion.ul className={navIsOpen ? "open" : "closed"} variants={listVariants}>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movies-by-language">Movies by language</a>
