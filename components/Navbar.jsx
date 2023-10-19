@@ -10,8 +10,12 @@ export const Navbar = () => {
     const [searchResults, setSearchResults] = useState([]);
 
     useEffect(() => {
-        const results = allTheMovies.filter(movie => movie.Title.toLowerCase().includes(searchTitle.toLowerCase()));
-        setSearchResults(results);
+        if (searchTitle !== '') {
+            const results = allTheMovies.filter(movie => movie.Title.toLowerCase().includes(searchTitle.toLowerCase()));
+            setSearchResults(results);
+        } else {
+            setSearchResults([]);
+        }
     }, [searchTitle]);
 
 
