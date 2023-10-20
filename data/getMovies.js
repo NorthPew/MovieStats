@@ -18,7 +18,7 @@ const colors = [
     "581845","DAF7A6"
 ];
 
-export let allTheMovies = [
+export let allTheCategoryMovies = [
     ...featuredMovies,
     ...documentaries,
     ...specials
@@ -27,7 +27,7 @@ export let allTheMovies = [
 export function getMoviesByLanguagePieConfig() {
 
     // Counter for all the languages from the objects in the array using reduce
-    const languageCounts = allTheMovies.reduce((counts, movie) => {
+    const languageCounts = allTheCategoryMovies.reduce((counts, movie) => {
         counts[movie.Language] = (counts[movie.Language] || 0) + 1;
         return counts;
     }, {});
@@ -55,36 +55,50 @@ export function getMoviesByLanguagePieConfig() {
 }
 
 export function getMoviesByMonthBarsConfig() {
+    const allCategories = [featuredMovies, documentaries, specials];
+    const categoryLabels = ['Featured Movies', 'Documentaries', 'Specials'];
 
-    // Splitting all the months using map and split
-    let pickOutTheMonths = allTheMovies.map(movie => {
-        let splitDate = movie.Premiere.split(' ');
-        let month = splitDate[0];
-        return month; 
+    let uniqueMonthLabels = [];
+
+    allCategories.forEach(category => {
+        category.forEach(movie => {
+            let month = movie.Premiere.split(' ')[0];
+            if (!uniqueMonthLabels.includes(month)) {
+                uniqueMonthLabels.push(month);
+            }
+        });
     });
 
-    let uniqueMonthLabels = pickOutTheMonths.filter((month, index) => pickOutTheMonths.indexOf(month) === index);
+    let datasets = allCategories.map((category, index) => {
+        let pickOutTheMonths = category.map(movie => {
+            let splitDate = movie.Premiere.split(' ');
+            let month = splitDate[0];
+            return month; 
+        });
 
-    let moviesByMonthCounter = pickOutTheMonths.reduce((counts, month) => {
-        counts[month] = (counts[month] || 0) + 1;
-        return counts;
-    }, {});
+        let moviesByMonthCounter = pickOutTheMonths.reduce((counts, month) => {
+            counts[month] = (counts[month] || 0) + 1;
+            return counts;
+        }, {});
 
-    let dataPerMonth = uniqueMonthLabels.map(month => moviesByMonthCounter[month])
+        let dataPerMonth = uniqueMonthLabels.map(month => moviesByMonthCounter[month] || 0);
+
+        return {
+            label: categoryLabels[index],
+            data: dataPerMonth,
+            backgroundColor: colors[index]
+        }
+    });
 
     return {
         labels: uniqueMonthLabels,
-        datasets: [{
-            label: 'Movie Premieres',
-            data: dataPerMonth,
-            backgroundColor: colors
-        }]
+        datasets: datasets
     }
 }
 
 export function getMoviesByDurationLineConfig() {
 
-    let pickOutTheDurations = allTheMovies.map(movie => {
+    let pickOutTheDurations = allTheCategoryMovies.map(movie => {
         let splitTheTime = movie.Runtime.split(' ')
         return `${splitTheTime[0]}${splitTheTime[1]}`
     })
@@ -108,7 +122,7 @@ export function getMoviesByDurationLineConfig() {
 export function getMoviesByGenrePieConfig() {
 
     // Counter for all the genre from the objects in the array using reduce
-    const genreCounts = allTheMovies.reduce((counts, movie) => {
+    const genreCounts = allTheCategoryMovies.reduce((counts, movie) => {
         // Only count the movie if it has a genre
         if (movie.Genre && movie.Genre.trim() !== '') {
             counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;

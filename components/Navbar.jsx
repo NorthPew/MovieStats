@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
-import { allTheMovies } from "../data/getMovies"
+import { allTheCategoryMovies } from "../data/getMovies"
 
 
 export const Navbar = () => {
@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     useEffect(() => {
         if (searchTitle !== '') {
-            const results = allTheMovies.filter(movie => movie.Title.toLowerCase().includes(searchTitle.toLowerCase()));
+            const results = allTheCategoryMovies.filter(movie => movie.Title.toLowerCase().includes(searchTitle.toLowerCase()));
             setSearchResults(results);
         } else {
             setSearchResults([]);
