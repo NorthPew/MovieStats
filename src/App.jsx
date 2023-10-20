@@ -19,9 +19,13 @@ function App() {
   return (
     <main>
       <Navbar />
+      <h1 className="title">Filmer i olika språk</h1>
       <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
+      <h1 className="title">Antal olika sorts filmer per månad</h1>
       <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
+      <h1 className="title">Olika filmers längd</h1>
       <Line id="movie-durations" data={moviesByDurationLineConfig} />
+      <h1 className="title">Alla genrer av filmer</h1>
       <Pie id="movies-by-genre" data={moviesByGenrePieConfig} />
     </main>
   )
