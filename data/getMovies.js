@@ -99,21 +99,34 @@ export function getMoviesByMonthBarsConfig() {
 export function getMoviesByDurationLineConfig() {
 
     let pickOutTheDurations = allTheCategoryMovies.map(movie => {
-        let splitTheTime = movie.Runtime.split(' ')
-        return `${splitTheTime[0]}${splitTheTime[1]}`
-    })
-
-    pickOutTheDurations.sort()
+        let splitTheTime = movie.Runtime.split(' ');
+        let durationInMinutes;
+        if (splitTheTime.length === 2) { // If the movie duration is in minutes
+            durationInMinutes = parseInt(splitTheTime[0]);
+        } else { // If the movie duration is in hours and minutes
+            let hours = parseInt(splitTheTime[0]);
+            let minutes = parseInt(splitTheTime[2]);
+            durationInMinutes = hours * 60 + minutes;
+        }
+        return durationInMinutes;
+    });
 
     let moviesByDurationCounter = pickOutTheDurations.reduce((counts, time) => {
         counts[time] = (counts[time] || 0) + 1;
         return counts;
-    }, {})
-
+    }, {});
+    
+    let data = Object.keys(moviesByDurationCounter).map(duration => {
+        return {
+            x: duration, // Antal minuter som filmerna är i X-led
+            y: moviesByDurationCounter[duration] // Antal filmer som är x antal minuter i Y-led
+        };
+    });
+    
     return {
         datasets: [{
             label: "Movies by Duration",
-            data: moviesByDurationCounter,
+            data: data,
             backgroundColor: colors
         }]
     }
