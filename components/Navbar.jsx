@@ -44,20 +44,22 @@ export const Navbar = () => {
     return (
         <>
             <motion.nav initial={false} animate={navIsOpen ? "open" : "closed"}>
+                <h1 className="nav-logo">MovieStats</h1>
                 <motion.button onClick={() => setNavIsOpen(!navIsOpen)} whileTap={{scale: 1.25}}>
                     Menu
                 </motion.button>
                 <input type="search" value={searchTitle} placeholder="Sök efter filmer" onChange={e => setSearchTitle(e.target.value)} />
-                <ul className="search-result-container" >
+                <ul className="search-result-container">
                 {searchResults.map((result, index) => (
                 <li  className="search-result-box"key={index}>
-                    Titel: <p className="big-text">{result.Title}</p>
+                    <p className="big-text">{result.Title}</p>
                     {
-                        result.Genre === undefined ? null : ` Genre: ${result.Genre}`
+                        result.Genre === undefined ? null : <p>Genre: {result.Genre}</p>
                     }
-                    Premiär: {result.Premiere}
-                    Längd: {result.Runtime}
-                    Språk: {result.Language}
+                        <p>Premiär: {result.Premiere}</p>
+                        <p>Längd: {result.Runtime}</p>
+                        <p>Språk: {result.Language}</p>
+
                     </li>
             ))}
                 </ul>

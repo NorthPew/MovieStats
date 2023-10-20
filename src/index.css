@@ -49,6 +49,12 @@ nav  {
   display: flex;
   position: relative;
   width: 100vw;
+  column-gap: 15px;
+  padding: 0em 0.5em;
+}
+
+.nav-logo {
+  margin: 0px;
 }
 
 ul.closed {
@@ -146,27 +152,32 @@ li > a:hover {
   position: absolute;
   left: 0px;
   border-radius: 15px;
-  top: 30px;
+  top: 14px;
 }
 
 .search-result-box {
-  height: 680px;
+  height: 338px;
   background-color: #272727;
   width: 100vw;
+  color: #fff;
 }
 
 .big-text {
-  margin: 300px auto;
-  text-align: center;
   color: white;
-  font-size: 2em;
+  font-size: 6em;
   transition: 0.5s;
+  transition: text-shadow 0.85s linear;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.big-text:hover {
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
-                     0 3px 0 #ccc, 0 4px 0 #ccc,
-                     0 5px 0 #ccc, 0 6px 0 #ccc,
-                     0 7px 0 #ccc, 0 8px 0 #ccc,
-                     0 9px 0 #ccc, 0 10px 0 #ccc,
-                     0 11px 0 #ccc, 0 12px 0 #ccc,
-                     0 20px 30px rgba(0, 0, 0, 0.5);
+  0 3px 0 #ccc, 0 4px 0 #ccc,
+  0 5px 0 #ccc, 0 6px 0 #ccc,
+  0 7px 0 #ccc, 0 8px 0 #ccc,
+  0 9px 0 #ccc, 0 10px 0 #ccc,
+  0 11px 0 #ccc, 0 12px 0 #ccc,
+  0 20px 30px rgba(0, 0, 0, 0.5);
 }
