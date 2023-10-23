@@ -28,12 +28,18 @@ export function getMoviesByLanguagePieConfig() {
 
     // Counter for all the languages from the objects in the array using reduce
     const languageCounts = allTheCategoryMovies.reduce((counts, movie) => {
+        if(!movie.Language) {
+            console.log("Undefined?: ", movie,);
+        }
         counts[movie.Language] = (counts[movie.Language] || 0) + 1;
         return counts;
     }, {});
 
+    console.log(languageCounts);
+
     // This is for labels that is used to distinguish between languages
     let labelsForLanguages = Object.keys(languageCounts);
+    console.log(labelsForLanguages);
 
     // This is used for displaying the chart
     let dataLanguages = Object.values(languageCounts);
@@ -137,9 +143,10 @@ export function getMoviesByGenrePieConfig() {
     // Counter for all the genre from the objects in the array using reduce
     const genreCounts = allTheCategoryMovies.reduce((counts, movie) => {
         // Only count the movie if it has a genre
-        if (movie.Genre && movie.Genre.trim() !== '') {
-            counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;
+        if (movie.Genre === undefined) {
+            movie.Genre = "Documentary"
         }
+        counts[movie.Genre] = (counts[movie.Genre] || 0) + 1;
         return counts;
     }, {});
 
