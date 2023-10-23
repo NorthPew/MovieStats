@@ -43,6 +43,7 @@ export const Navbar = () => {
 
     return (
         <>
+        <div className="placeholder-nav">
             <motion.nav initial={false} animate={navIsOpen ? "open" : "closed"}>
                 <h1 className="nav-logo">MovieStats</h1>
                 <motion.button onClick={() => setNavIsOpen(!navIsOpen)} whileTap={{scale: 1.25}}>
@@ -82,6 +83,7 @@ export const Navbar = () => {
                     </motion.li>
                 </motion.ul>
             </motion.nav>
+        </div>
             <div id="navbar-outside" onClick={() => setNavIsOpen(!navIsOpen)} className={navIsOpen ? "open" : "closed"}>
 
             </div>

@@ -21,16 +21,24 @@ function App() {
       <Navbar />
       <div className="big-image">
         <h1 className="rotate-title">MovieStats</h1>
-        <h2>En tjänst till MovieFlex</h2>
+        <h2 className="squish-squash-text">En tjänst till MovieFlex</h2>
       </div>
-      <h1 className="title">Antal filmer i olika språk</h1>
-      <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
-      <h1 className="title">Antal olika sorts filmer per månad</h1>
-      <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
-      <h1 className="title">Olika filmers längd</h1>
-      <Line id="movie-durations" data={moviesByDurationLineConfig} />
-      <h1 className="title">Alla genrer av filmer</h1>
-      <Pie id="movies-by-genre" data={moviesByGenrePieConfig} />
+      <div className="card">
+        <h1 className="title">Antal filmer i olika språk</h1>
+        <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
+      </div>
+      <div className="card">
+        <h1 className="title">Antal olika sorts filmer per månad</h1>
+        <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
+      </div>
+      <div className="card">
+        <h1 className="title">Olika filmers längd</h1>
+        <Line id="movie-durations" data={moviesByDurationLineConfig} />
+      </div>
+      <div className="card">
+        <h1 className="title">Alla genrer av filmer</h1>
+        <Pie id="movies-by-genre" data={moviesByGenrePieConfig} />
+      </div>
     </main>
   )
 }
