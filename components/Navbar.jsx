@@ -53,13 +53,17 @@ export const Navbar = () => {
                 {searchResults.map((result, index) => (
                 <li  className="search-result-box"key={index}>
                     <p className="big-text">{result.Title}</p>
-                    {
-                        result.Genre === undefined ? null : <p>Genre: {result.Genre}</p>
-                    }
+                    {   searchResults.length >= 4 ?
+                            null
+                        : <>
+                        {
+                            result.Genre === undefined ? null : <p>Genre: {result.Genre}</p>
+                        }
                         <p>Premiär: {result.Premiere}</p>
                         <p>Längd: {result.Runtime}</p>
                         <p>Språk: {result.Language}</p>
-
+                    </>
+                    } 
                     </li>
             ))}
                 </ul>
