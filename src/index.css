@@ -188,7 +188,47 @@ li > a:hover {
   0 11px 0 #ccc, 0 12px 0 #ccc,
   0 20px 30px rgba(0, 0, 0, 0.5);
 }
+/* Content */
+.big-image {
+  background-image: url("../dancing.gif");
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 780px;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+  color: #fff;
+  font-size: 160%;
+  text-align: center;
+}
 
 .title {
   text-align: center;
 }
+
+
+@keyframes rotateTitle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.rotate-title:hover {
+  animation-name: rotateTitle;
+  animation-duration: 7s;
+}
+
+

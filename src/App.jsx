@@ -19,7 +19,11 @@ function App() {
   return (
     <main>
       <Navbar />
-      <h1 className="title">Filmer i olika språk</h1>
+      <div className="big-image">
+        <h1 className="rotate-title">MovieStats</h1>
+        <h2>En tjänst till MovieFlex</h2>
+      </div>
+      <h1 className="title">Antal filmer i olika språk</h1>
       <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
       <h1 className="title">Antal olika sorts filmer per månad</h1>
       <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
