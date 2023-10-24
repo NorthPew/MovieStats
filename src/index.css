@@ -59,6 +59,7 @@ nav {
   padding: 0em 0.5em;
   top: 0px;
   align-items: center;
+  z-index: 1;
 }
 
 .nav-logo {
@@ -140,6 +141,7 @@ li > a:hover {
   transition: height .05s ease-in-out;
   padding: 0px;
   position: fixed;
+  z-index: 1;
 }
 
 #navbar-outside.open {
@@ -201,12 +203,23 @@ li > a:hover {
   color: #fff;
   font-size: 160%;
   text-align: center;
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.border-titles {
+  width: 500px;
+  height: auto;
+  border: .5px solid #f1f1ff;
+  background-color: rgba(39, 39, 39, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  position: relative;
+  z-index: 0;
 }
 
 .title {
   text-align: center;
 }
-
 
 @keyframes rotateTitle {
   0% {
@@ -224,10 +237,6 @@ li > a:hover {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.rotate-title, .squish-squash-text {
-  background-color: #272727;
 }
 
 .squish-squash-text {
@@ -254,9 +263,7 @@ li > a:hover {
   margin-right: 10em;
   display: grid;
   height: auto;
-  padding-top: 1.15em;
   padding: 1.15em .85em;
-  padding-bottom: 1.25em;
   justify-content: center;
   grid-template-areas: 'title title title' 'chart chart chart' 'chart chart chart';
 }
