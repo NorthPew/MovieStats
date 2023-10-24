@@ -76,6 +76,7 @@ export const Navbar = () => {
                     </li>
             ))}
                 </ul>
+                <motion.div className="progress-bar" style={{ scaleX }}></motion.div>
                 <motion.ul id="menu" className={navIsOpen ? "open" : "closed"} variants={listVariants}>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movies-by-language">Movies by language</a>
@@ -91,7 +92,7 @@ export const Navbar = () => {
                     </motion.li>
                 </motion.ul>
             </motion.nav>
-            <motion.div className="progress-bar" style={{ scaleX }}></motion.div>
+
         </div>
             <div id="navbar-outside" onClick={() => setNavIsOpen(!navIsOpen)} className={navIsOpen ? "open" : "closed"}>
 
