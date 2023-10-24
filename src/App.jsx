@@ -25,19 +25,19 @@ function App() {
       </div>
       <div className="card">
         <h1 className="title">Antal filmer i olika språk</h1>
-        <Pie id="movies-by-language" data={moviesByLanguagePieConfig} />
+        <Pie className="chart" id="movies-by-language" data={moviesByLanguagePieConfig} />
       </div>
       <div className="card">
         <h1 className="title">Antal olika sorts filmer per månad</h1>
-        <Bar id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
+        <Bar className="chart" id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
       </div>
       <div className="card">
         <h1 className="title">Olika filmers längd</h1>
-        <Line id="movie-durations" data={moviesByDurationLineConfig} />
+        {/*<Line className="chart" id="movie-durations" data={moviesByDurationLineConfig} />*/}
       </div>
       <div className="card">
         <h1 className="title">Alla genrer av filmer</h1>
-        <Pie id="movies-by-genre" data={moviesByGenrePieConfig} />
+        <Pie className="chart" id="movies-by-genre" data={moviesByGenrePieConfig} />
       </div>
     </main>
   )

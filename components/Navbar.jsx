@@ -68,7 +68,7 @@ export const Navbar = () => {
                     </li>
             ))}
                 </ul>
-                <motion.ul className={navIsOpen ? "open" : "closed"} variants={listVariants}>
+                <motion.ul id="menu" className={navIsOpen ? "open" : "closed"} variants={listVariants}>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
                         <a href="#movies-by-language">Movies by language</a>
                     </motion.li>
@@ -91,9 +91,3 @@ export const Navbar = () => {
     )
 
 }
-
-
-
-
-
-
