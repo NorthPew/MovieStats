@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion, useScroll, useSpring } from "framer-motion"
 
 import { allTheCategoryMovies } from "../data/getMovies"
 
@@ -18,6 +18,7 @@ export const Navbar = () => {
         }
     }, [searchTitle]);
 
+    // Framer motion
 
     const listItemVariants = {
         open: {
@@ -41,8 +42,15 @@ export const Navbar = () => {
         }
     }
 
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.003
+      });
     return (
         <>
+            
         <div className="placeholder-nav">
             <motion.nav initial={false} animate={navIsOpen ? "open" : "closed"}>
                 <h1 className="nav-logo">MovieStats</h1>
@@ -83,6 +91,7 @@ export const Navbar = () => {
                     </motion.li>
                 </motion.ul>
             </motion.nav>
+            <motion.div className="progress-bar" style={{ scaleX }}></motion.div>
         </div>
             <div id="navbar-outside" onClick={() => setNavIsOpen(!navIsOpen)} className={navIsOpen ? "open" : "closed"}>
 

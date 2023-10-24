@@ -60,6 +60,7 @@ nav {
   top: 0px;
   align-items: center;
   z-index: 1;
+  padding-top: 10px;
 }
 
 .nav-logo {
@@ -191,6 +192,17 @@ li > a:hover {
   0 20px 30px rgba(0, 0, 0, 0.5);
 }
 
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #279696;
+  transform-origin: 0%;
+  z-index: 1;
+}
+
 /* Content */
 .big-image {
   background-image: url("../posters.png");
@@ -280,3 +292,5 @@ li > a:hover {
 .card .chart {
   grid-area: chart;
 }
+
+
