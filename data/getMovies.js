@@ -101,8 +101,41 @@ export function getMoviesByMonthBarsConfig() {
 }
 
 export function getMoviesByDurationLineConfig() {
-    // Todo: Redo the whole sh*t stain
-}
+    // A function to convert hrs and mins to mins instead
+    function convertToMinutes(runtime) {
+      const timeParts = runtime.split(' ');
+      let minutes = 0;
+  
+      for (let i = 0; i < timeParts.length; i += 2) {
+        if (timeParts[i + 1] === 'h') {
+          minutes += parseInt(timeParts[i]) * 60;
+        } else if (timeParts[i + 1] === 'min') {
+          minutes += parseInt(timeParts[i]);
+        }
+      }
+      return minutes;
+    }
+  
+    // Converts all the movies to mins
+    allTheCategoryMovies.forEach(movie => {
+      movie.Runtime = convertToMinutes(movie.Runtime);
+    });
+  
+    // Sort the movies by runtime
+    allTheCategoryMovies.sort((a, b) => a.Runtime - b.Runtime);
+  
+    return {
+      labels: allTheCategoryMovies.map(movie => movie.Title),
+      datasets: [
+        {
+          label: 'Movie Length in Minutes',
+          data: allTheCategoryMovies.map(movie => movie.Runtime),
+          fill: false,
+          backgroundColor: '#279696',
+        },
+      ]
+    }
+  }
 
 export function getMoviesByGenrePieConfig() {
 

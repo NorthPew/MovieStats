@@ -16,6 +16,16 @@ const moviesByGenrePieConfig = getMoviesByGenrePieConfig()
 
 function App() {
 
+  const options = () => {
+    return {
+      scales: {
+        x: { 
+          display: false // Gömmer labels i X led
+        }
+      }
+    }
+  }
+
   return (
     <main>
       <Navbar />
@@ -32,8 +42,8 @@ function App() {
         <Bar className="chart" id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
       </div>
       <div className="card">
-        <h1 className="title">Olika filmers längd</h1>
-        {/*<Line className="chart" id="movie-durations" data={moviesByDurationLineConfig} />*/}
+        <h1 className="title">Alla olika filmers längd</h1>
+        <Line className="chart" id="movie-durations" data={moviesByDurationLineConfig} options={options()} />
       </div>
       <div className="card">
         <h1 className="title">Alla genrer av filmer</h1>
