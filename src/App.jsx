@@ -5,11 +5,13 @@ ChartJS.register(ArcElement, Tooltip, Title, Legend, CategoryScale, LinearScale,
   LineElement,);
 import { Pie, Bar, Line } from "react-chartjs-2"
 
+// Components
+import { BigImage } from '../components/BigImage';
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer';
 
+// Charts
 import { getMoviesByLanguagePieConfig, getMoviesByMonthBarsConfig, getMoviesByDurationLineConfig, getMoviesByGenrePieConfig} from '../data/getMovies';
-
 
 const moviesByLanguagePieConfig = getMoviesByLanguagePieConfig()
 const moviesByMonthBarsConfig = getMoviesByMonthBarsConfig()
@@ -52,12 +54,7 @@ function App() {
     <>  
       <main>
         <Navbar />
-        <div className="big-image">
-          <div className="border-titles">
-            <h1 className="rotate-title">MovieStats</h1>
-            <h2 className="squish-squash-text">En tjänst till MovieFlex</h2>
-          </div>
-        </div>
+        <BigImage />
         <motion.div variants={container} initial="hidden"
       animate="visible">
           <motion.div className="card" variants={item}>

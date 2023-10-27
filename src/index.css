@@ -364,4 +364,5 @@ padding: .65em .5em;
 .footer-link:hover {
   animation: footerLinkHover;
   animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
