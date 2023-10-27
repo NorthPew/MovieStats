@@ -238,15 +238,6 @@ li > .menu-link:hover {
   0% {
     transform: rotate(0deg);
   }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
   100% {
     transform: rotate(360deg);
   }
@@ -329,26 +320,6 @@ padding: .65em .5em;
 }
 
 
-
-@keyframes menuLinkHover {
-  0% {
-    background-color: rgb(226, 43, 43);
-  }
-  25% {
-    background-color: rgb(226, 192, 43);
-  }
-  50% {
-    background-color: rgb(86, 226, 43);
-  }
-  75% {
-    background-color: rgb(43, 226, 214);
-  }
-  100% {
-    background-color: rgb(150, 43, 226);
-  }
-}
-
-
 @keyframes footerLinkHover {
   0% {
     transform: scaleX(1) scaleY(1);
@@ -364,5 +335,4 @@ padding: .65em .5em;
 .footer-link:hover {
   animation: footerLinkHover;
   animation-duration: 4s;
-  animation-iteration-count: infinite;
 }
