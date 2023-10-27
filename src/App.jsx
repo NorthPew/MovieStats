@@ -6,6 +6,7 @@ ChartJS.register(ArcElement, Tooltip, Title, Legend, CategoryScale, LinearScale,
 import { Pie, Bar, Line } from "react-chartjs-2"
 
 import { Navbar } from '../components/Navbar'
+import { Footer } from '../components/Footer';
 
 import { getMoviesByLanguagePieConfig, getMoviesByMonthBarsConfig, getMoviesByDurationLineConfig, getMoviesByGenrePieConfig} from '../data/getMovies';
 
@@ -48,34 +49,37 @@ function App() {
   };
 
   return (
-    <main>
-      <Navbar />
-      <div className="big-image">
-        <div className="border-titles">
-          <h1 className="rotate-title">MovieStats</h1>
-          <h2 className="squish-squash-text">En tjänst till MovieFlex</h2>
+    <>  
+      <main>
+        <Navbar />
+        <div className="big-image">
+          <div className="border-titles">
+            <h1 className="rotate-title">MovieStats</h1>
+            <h2 className="squish-squash-text">En tjänst till MovieFlex</h2>
+          </div>
         </div>
-      </div>
-      <motion.div variants={container} initial="hidden"
-    animate="visible">
-        <motion.div className="card" variants={item}>
-          <h1 className="title">Antal filmer i olika språk</h1>
-          <Pie className="chart" id="movies-by-language" data={moviesByLanguagePieConfig} />
+        <motion.div variants={container} initial="hidden"
+      animate="visible">
+          <motion.div className="card" variants={item}>
+            <h1 className="title">Antal filmer i olika språk</h1>
+            <Pie className="chart" id="movies-by-language" data={moviesByLanguagePieConfig} />
+          </motion.div>
+          <motion.div className="card" variants={item}>
+            <h1 className="title">Antal olika sorts filmer per månad</h1>
+            <Bar className="chart" id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
+          </motion.div>
+          <motion.div className="card" variants={item}>
+            <h1 className="title">Alla olika filmers längd</h1>
+            <Line className="chart" id="movie-durations" data={moviesByDurationLineConfig} options={options} />
+          </motion.div>
+          <motion.div className="card" variants={item}>
+            <h1 className="title">Alla genrer av filmer</h1>
+            <Pie className="chart" id="movies-by-genre" data={moviesByGenrePieConfig} />
+          </motion.div>
         </motion.div>
-        <motion.div className="card" variants={item}>
-          <h1 className="title">Antal olika sorts filmer per månad</h1>
-          <Bar className="chart" id="movie-releases-by-month" data={moviesByMonthBarsConfig} />
-        </motion.div>
-        <motion.div className="card" variants={item}>
-          <h1 className="title">Alla olika filmers längd</h1>
-          <Line className="chart" id="movie-durations" data={moviesByDurationLineConfig} options={options} />
-        </motion.div>
-        <motion.div className="card" variants={item}>
-          <h1 className="title">Alla genrer av filmer</h1>
-          <Pie className="chart" id="movies-by-genre" data={moviesByGenrePieConfig} />
-        </motion.div>
-      </motion.div>
-    </main>
+      </main>
+      <Footer />
+    </>
   )
 }
 

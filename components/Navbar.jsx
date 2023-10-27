@@ -51,7 +51,7 @@ export const Navbar = () => {
     return (
         <>
             
-        <div className="placeholder-nav">
+        <div id="top" className="placeholder-nav">
             <motion.nav initial={false} animate={navIsOpen ? "open" : "closed"}>
                 <h1 className="nav-logo">MovieStats</h1>
                 <motion.button onClick={() => setNavIsOpen(!navIsOpen)} whileTap={{scale: 1.25}}>
@@ -79,16 +79,16 @@ export const Navbar = () => {
                 <motion.div className="progress-bar" style={{ scaleX }}></motion.div>
                 <motion.ul id="menu" className={navIsOpen ? "open" : "closed"} variants={listVariants}>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
-                        <a href="#movies-by-language">Movies by language</a>
+                        <a className="menu-link" href="#movies-by-language">Movies by language</a>
                     </motion.li>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
-                        <a href="#movie-releases-by-month">Movie releases by month</a>
+                        <a className="menu-link"href="#movie-releases-by-month">Movie releases by month</a>
                     </motion.li>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
-                        <a href="#movie-durations">Movie durations</a>
+                        <a className="menu-link" href="#movie-durations">Movie durations</a>
                     </motion.li>
                     <motion.li whileHover={{scaleY: 1.15}} variants={listItemVariants}>
-                        <a href="#movies-by-genre">Movies by genre</a>
+                        <a className="menu-link" href="#movies-by-genre">Movies by genre</a>
                     </motion.li>
                 </motion.ul>
             </motion.nav>

@@ -117,7 +117,7 @@ nav {
   }
 }
 
-li > a {
+li > .menu-link {
   text-decoration: none;
   border-radius: 5.5px;
   color: #ffffff;
@@ -126,11 +126,11 @@ li > a {
   text-align: center;
 }
 
-li > a:link, li > a:visited {
+li > .menu-link:link, li > .menu-link:visited {
   color: #272727;
 }
 
-li > a:hover {
+li > .menu-link:hover {
   animation: menuLinkHover;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -294,4 +294,74 @@ li > a:hover {
   grid-area: chart;
 }
 
+/* Footer */
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30em);
+  height: 240px;
+  width: 100%;
+  background-color: #272727;
+  color: #fff;
+  border-radius: 15px 15px 0px 0px;
+  justify-content: center;
+}
 
+.footer-logo {
+  pointer-events: none;
+}
+
+.footer-branding {
+  cursor: grab;
+  text-align: center;
+}
+
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+padding: .65em .5em;
+
+}
+
+.footer-link:link, .footer-link:visited {
+  color: #fff;
+}
+
+
+
+@keyframes menuLinkHover {
+  0% {
+    background-color: rgb(226, 43, 43);
+  }
+  25% {
+    background-color: rgb(226, 192, 43);
+  }
+  50% {
+    background-color: rgb(86, 226, 43);
+  }
+  75% {
+    background-color: rgb(43, 226, 214);
+  }
+  100% {
+    background-color: rgb(150, 43, 226);
+  }
+}
+
+
+@keyframes footerLinkHover {
+  0% {
+    transform: scaleX(1) scaleY(1);
+    background-color: rgb(226, 43, 43);
+  }
+  100% {
+    transform: scaleX(.75) scaleY(1.75);
+    background-color: rgb(86, 226, 43);
+    border-radius: 15px;
+  }
+}
+
+.footer-link:hover {
+  animation: footerLinkHover;
+  animation-duration: 4s;
+}
